@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dành Cho Em Yêu ❤️</title>
+    <title>Em Có Yêu Anh Không? ❤️</title>
     <style>
         * {
             margin: 0;
@@ -61,7 +61,7 @@
         }
 
         .title {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: #fff;
             text-shadow: 0 0 20px rgba(255,255,255,0.8);
             margin-bottom: 20px;
@@ -94,7 +94,7 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
             border-radius: 25px;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             border: 2px solid rgba(255,255,255,0.3);
             animation: slideInUp 1.5s ease-out 0.5s backwards;
@@ -112,170 +112,83 @@
             }
         }
 
-        .love-message {
-            font-size: 1.3rem;
-            line-height: 1.6;
+        .question {
+            font-size: 1.8rem;
             color: #fff;
-            margin-bottom: 25px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-
-        .love-message p {
-            margin-bottom: 12px;
-            opacity: 0;
-            animation: fadeInText 0.8s ease-out forwards;
-        }
-
-        .love-message p:nth-child(1) { animation-delay: 1.5s; }
-        .love-message p:nth-child(2) { animation-delay: 2s; }
-
-        @keyframes fadeInText {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .highlight {
-            color: #ffeb3b;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-shadow: 0 0 15px rgba(255,235,59,0.8);
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8);
             animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 15px rgba(255,235,59,0.8); }
-            to { text-shadow: 0 0 25px rgba(255,235,59,1), 0 0 35px rgba(255,235,59,0.8); }
+            from { text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+            to { text-shadow: 0 0 25px rgba(255,255,255,1), 0 0 35px rgba(255,255,255,0.8); }
         }
 
-        .photo-section {
-            margin: 20px 0;
-            opacity: 0;
-            animation: bounceIn 1s ease-out 2.5s forwards;
-        }
-
-        .photo-placeholder {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #ff9a9e, #fecfef, #a8edea, #fed6e3);
-            background-size: 400% 400%;
-            animation: gradientShift 4s ease infinite;
-            border-radius: 50%;
-            margin: 0 auto 15px;
+        .buttons-container {
             display: flex;
-            align-items: center;
+            gap: 120px;
             justify-content: center;
-            color: white;
-            font-size: 0.9rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            border: 3px solid rgba(255,255,255,0.5);
-            transition: all 0.3s ease;
+            align-items: center;
+            margin: 40px 0;
+            height: 80px;
+            position: relative;
+            width: 100%;
         }
 
-        .photo-placeholder:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .confession-button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.3rem;
             border: none;
-            padding: 15px 35px;
-            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255,107,107,0.4);
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             position: relative;
-            overflow: hidden;
-            animation: buttonPulse 2s ease-in-out infinite;
+            z-index: 10;
         }
 
-        @keyframes buttonPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .btn-yes {
+            background: linear-gradient(45deg, #26de81, #20bf6b);
+            color: white;
+            animation: yesGlow 2s ease-in-out infinite alternate;
         }
 
-        .confession-button::before {
-            content: '';
+        @keyframes yesGlow {
+            from { box-shadow: 0 10px 20px rgba(38, 222, 129, 0.4); }
+            to { box-shadow: 0 15px 30px rgba(38, 222, 129, 0.8), 0 0 20px rgba(38, 222, 129, 0.6); }
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(38, 222, 129, 0.6);
+        }
+
+        .btn-no {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            transition: all 0.2s ease;
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 3s ease-in-out infinite;
+            cursor: pointer;
         }
 
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .btn-no:hover {
+            transform: translateY(-3px);
         }
 
-        .confession-button:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 15px 30px rgba(255,107,107,0.6);
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        .heart-float {
-            animation: floatUp 4s ease-out infinite;
-        }
-
-        .heart-spiral {
-            animation: spiralUp 5s ease-out infinite;
-        }
-
-        @keyframes floatUp {
-            0% {
-                opacity: 1;
-                transform: translateY(0) scale(1) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-120px) scale(0.3) rotate(360deg);
-            }
-        }
-
-        @keyframes spiralUp {
-            0% {
-                opacity: 1;
-                transform: translateY(0) translateX(0) scale(1) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-30px) translateX(20px) scale(1.2) rotate(90deg);
-            }
-            50% {
-                transform: translateY(-60px) translateX(-20px) scale(0.8) rotate(180deg);
-            }
-            75% {
-                transform: translateY(-90px) translateX(15px) scale(1.1) rotate(270deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-120px) translateX(0) scale(0.2) rotate(360deg);
-            }
+        .btn-no.running {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: not-allowed;
         }
 
         .response-section {
             display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(46, 204, 113, 0.2);
-            border-radius: 15px;
-            border: 2px solid rgba(46, 204, 113, 0.5);
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(38, 222, 129, 0.2);
+            border-radius: 20px;
+            border: 2px solid rgba(38, 222, 129, 0.5);
             backdrop-filter: blur(10px);
         }
 
@@ -300,22 +213,22 @@
         }
 
         .response-message {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #fff;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(255,255,255,0.8);
             animation: celebrationBounce 0.6s ease-in-out infinite alternate;
         }
 
         @keyframes celebrationBounce {
             from { transform: translateY(0); }
-            to { transform: translateY(-8px); }
+            to { transform: translateY(-10px); }
         }
 
         .celebration {
-            font-size: 1.8rem;
-            margin: 10px 0;
+            font-size: 2.5rem;
+            margin: 20px 0;
             animation: spin 2s linear infinite;
         }
 
@@ -324,11 +237,30 @@
             to { transform: rotate(360deg); }
         }
 
-        .floating-emoji {
-            position: fixed;
+        .heart {
+            position: absolute;
             font-size: 25px;
             pointer-events: none;
-            animation: floatEmoji 5s ease-out infinite;
+            z-index: 100;
+            animation: floatUp 4s ease-out infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-150px) scale(0.3) rotate(360deg);
+            }
+        }
+
+        .floating-emoji {
+            position: fixed;
+            font-size: 30px;
+            pointer-events: none;
+            animation: floatEmoji 6s ease-out infinite;
         }
 
         @keyframes floatEmoji {
@@ -344,77 +276,115 @@
             }
             100% {
                 opacity: 0;
-                transform: translateY(-50px) rotate(360deg);
+                transform: translateY(-100px) rotate(720deg);
             }
+        }
+
+        .attempt-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
         }
 
         @media (max-width: 768px) {
             .title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .main-content {
-                padding: 20px;
+                padding: 25px;
             }
             
-            .love-message {
-                font-size: 1.1rem;
-            }
-            
-            .photo-placeholder {
-                width: 100px;
-                height: 100px;
-                font-size: 0.8rem;
+            .question {
+                font-size: 1.4rem;
             }
 
-            .confession-button {
-                padding: 12px 25px;
-                font-size: 1rem;
+            .buttons-container {
+                gap: 60px;
+                flex-direction: column;
+                height: 120px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                width: 200px;
             }
         }
     </style>
 </head>
 <body>
     <div class="stars"></div>
+    <div class="attempt-counter">
+        Lần thử: <span id="attemptCount">0</span>
+    </div>
     
     <div class="container">
-        <h1 class="title">Em Yêu ❤️</h1>
+        <h1 class="title">Em Yêu Anh Không? 💕</h1>
 
         <div class="main-content">
-            <div class="love-message">
-                <p>Em là <span class="highlight">ánh sáng</span> trong đời anh 💫</p>
-                <p><span class="highlight">Làm người yêu anh nhé?</span> 💕</p>
+            <div class="question">
+                Anh muốn hỏi em một câu quan trọng... 🥺
             </div>
 
-            <div class="photo-section">
-                <div class="photo-placeholder">
-                    📸 Ảnh em
-                </div>
+            <div class="buttons-container" id="buttonsContainer">
+                <button class="btn btn-yes" onclick="handleYes()">
+                    💖 Có, em yêu anh! 💖
+                </button>
+                <button class="btn btn-no" id="noButton" onmouseover="moveNoButton()" onclick="moveNoButton()">
+                    😢 Không...
+                </button>
             </div>
-
-            <button class="confession-button" onclick="showResponse()">
-                💖 Em đồng ý chứ? 💖
-            </button>
 
             <div class="response-section" id="responseSection">
                 <div class="response-message">
-                    🎉 YAY! Em đồng ý! 🎉
+                    🎉 Yayyy! Anh biết mà! 🎉
                 </div>
                 <div class="celebration">
-                    ✨ 💕 ✨ 💕 ✨
+                    🌟 💖 🌟 💖 🌟 💖 🌟
                 </div>
-                <p style="color: #fff; font-size: 1rem; text-shadow: 0 0 10px rgba(255,255,255,0.8);">
-                    Chúng ta sẽ hạnh phúc mãi mãi! 🌟
+                <p style="color: #fff; font-size: 1.2rem; text-shadow: 0 0 10px rgba(255,255,255,0.8);">
+                    Anh yêu em nhiều lắm! Chúng ta sẽ hạnh phúc mãi mãi! 🥰
                 </p>
             </div>
         </div>
     </div>
 
     <script>
+        let attempts = 0;
+        let isChasing = false;
+        let isOrbiting = false;
+        let chaseInterval;
+        let orbitInterval;
+        let orbitAngle = 0;
+        const attemptCounter = document.getElementById('attemptCount');
+        const noButton = document.getElementById('noButton');
+        const buttonsContainer = document.getElementById('buttonsContainer');
+
+        // Danh sách thông điệp thay đổi cho nút "Không"
+        const noButtonTexts = [
+            "😢 Không...",
+            "🤔 Em chắc chưa?",
+            "😅 Suy nghĩ lại đi...",
+            "😂 Đùa thôi mà!",
+            "😏 Anh biết em yêu anh!",
+            "🙃 Click được đâu!",
+            "😜 Hehe, không được!",
+            "🤪 Em bị lừa rồi!",
+            "😈 Muahaha!",
+            "💔 Tổn thương quá..."
+        ];
+
         // Tạo sao lấp lánh
         function createStars() {
             const starsContainer = document.querySelector('.stars');
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 50; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.innerHTML = '✨';
@@ -427,28 +397,22 @@
 
         // Tạo trái tim bay
         function createHeart() {
-            const hearts = ['❤️', '💕', '💖', '💗', '💘'];
-            const animations = ['heart-float', 'heart-spiral'];
-            const colors = ['#e74c3c', '#ff6b6b', '#ff1744', '#f50057'];
-            
+            const hearts = ['❤️', '💕', '💖', '💗', '💘', '💝', '💞'];
             const heart = document.createElement('div');
-            heart.className = 'heart ' + animations[Math.floor(Math.random() * animations.length)];
+            heart.className = 'heart';
             heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            heart.style.color = ['#e74c3c', '#ff6b6b', '#ff1744'][Math.floor(Math.random() * 3)];
             heart.style.animationDelay = Math.random() * 2 + 's';
-            heart.style.filter = `drop-shadow(0 0 8px ${colors[Math.floor(Math.random() * colors.length)]})`;
+            heart.style.filter = 'drop-shadow(0 0 10px currentColor)';
             document.body.appendChild(heart);
 
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
+            setTimeout(() => heart.remove(), 4000);
         }
 
         // Tạo emoji bay
         function createFloatingEmoji() {
-            const emojis = ['🌹', '🌺', '🦋', '🌟', '💫'];
+            const emojis = ['🌹', '🌺', '🦋', '🌟', '💫', '🎊', '🎉'];
             const emoji = document.createElement('div');
             emoji.className = 'floating-emoji';
             emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
@@ -456,50 +420,223 @@
             emoji.style.animationDelay = Math.random() * 2 + 's';
             document.body.appendChild(emoji);
 
-            setTimeout(() => {
-                emoji.remove();
-            }, 6000);
+            setTimeout(() => emoji.remove(), 6000);
         }
 
-        // Tạo trái tim từ vị trí cụ thể
-        function createHeartAt(x, y) {
-            const hearts = ['❤️', '💕', '💖'];
-            for (let i = 0; i < 5; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart heart-float';
-                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = (x + Math.random() * 40 - 20) + 'px';
-                heart.style.top = y + 'px';
-                heart.style.fontSize = (Math.random() * 8 + 18) + 'px';
-                heart.style.color = '#e74c3c';
-                heart.style.animationDelay = (i * 0.1) + 's';
-                heart.style.filter = 'drop-shadow(0 0 10px #ff6b6b)';
-                document.body.appendChild(heart);
+        // Tính toán vị trí quỹ đạo quanh nút "Có"
+        function calculateOrbitPosition() {
+            const yesButton = document.querySelector('.btn-yes');
+            const yesRect = yesButton.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+            
+            // Tâm của nút "Có"
+            const centerX = yesRect.left + yesRect.width / 2;
+            const centerY = yesRect.top + yesRect.height / 2;
+            
+            // Bán kính quỹ đạo nhỏ hơn
+            const orbitRadius = 80; // Giảm từ 150px xuống 80px
+            
+            // Tính vị trí theo góc hiện tại
+            const x = centerX + Math.cos(orbitAngle) * orbitRadius - (buttonRect.width / 2);
+            const y = centerY + Math.sin(orbitAngle) * orbitRadius - (buttonRect.height / 2);
+            
+            // Giới hạn trong vùng nhỏ quanh nút "Có"
+            const restrictedRadius = 120; // Vùng giới hạn tối đa
+            const maxDistance = Math.sqrt(Math.pow(x + buttonRect.width/2 - centerX, 2) + Math.pow(y + buttonRect.height/2 - centerY, 2));
+            
+            if (maxDistance > restrictedRadius) {
+                // Nếu vượt quá vùng giới hạn, kéo về gần hơn
+                const angle = Math.atan2(y + buttonRect.height/2 - centerY, x + buttonRect.width/2 - centerX);
+                const newX = centerX + Math.cos(angle) * restrictedRadius - buttonRect.width/2;
+                const newY = centerY + Math.sin(angle) * restrictedRadius - buttonRect.height/2;
+                return { x: newX, y: newY };
+            }
+            
+            return { x, y };
+        }
 
-                setTimeout(() => {
-                    heart.remove();
-                }, 4000);
+        // Bắt đầu quỹ đạo quanh nút "Có"
+        function startOrbiting() {
+            if (isOrbiting) return;
+            
+            isOrbiting = true;
+            isChasing = false; // Dừng rượt đuổi nếu đang có
+            
+            if (chaseInterval) {
+                clearInterval(chaseInterval);
+                chaseInterval = null;
+            }
+            
+            noButton.classList.add('running');
+            
+            // Tính góc bắt đầu dựa trên vị trí hiện tại
+            const yesButton = document.querySelector('.btn-yes');
+            const yesRect = yesButton.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+            
+            const centerX = yesRect.left + yesRect.width / 2;
+            const centerY = yesRect.top + yesRect.height / 2;
+            const currentX = buttonRect.left + buttonRect.width / 2;
+            const currentY = buttonRect.top + buttonRect.height / 2;
+            
+            orbitAngle = Math.atan2(currentY - centerY, currentX - centerX);
+            
+            orbitInterval = setInterval(() => {
+                // Tăng góc để di chuyển theo chiều kim đồng hồ
+                orbitAngle += 0.05; // Tốc độ quay
+                
+                // Reset góc khi hoàn thành một vòng
+                if (orbitAngle > Math.PI * 2) {
+                    orbitAngle = 0;
+                }
+                
+                // Tính vị trí mới
+                const newPos = calculateOrbitPosition();
+                
+                // Di chuyển nút
+                noButton.style.position = 'fixed';
+                noButton.style.left = newPos.x + 'px';
+                noButton.style.top = newPos.y + 'px';
+                noButton.style.zIndex = '1000';
+                
+                // Hiệu ứng quay nhẹ
+                const rotationAngle = (orbitAngle * 180 / Math.PI) % 360;
+                noButton.style.transform = `rotate(${rotationAngle * 0.5}deg) scale(0.95)`;
+                
+            }, 50); // Cập nhật mỗi 50ms để mượt hơn
+        }
+
+        // Dừng quỹ đạo
+        function stopOrbiting() {
+            if (!isOrbiting) return;
+            
+            isOrbiting = false;
+            noButton.classList.remove('running');
+            
+            if (orbitInterval) {
+                clearInterval(orbitInterval);
+                orbitInterval = null;
+            }
+            
+            // Hiệu ứng dừng lại
+            noButton.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                noButton.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Bắt đầu cuộc rượt đuổi (chỉ khi không đang orbit)
+        function startChasing() {
+            if (isChasing || isOrbiting) return;
+            
+            isChasing = true;
+            noButton.classList.add('running');
+            
+            attempts++;
+            attemptCounter.textContent = attempts;
+            
+            // Thay đổi text
+            const textIndex = (attempts - 1) % noButtonTexts.length;
+            noButton.textContent = noButtonTexts[textIndex];
+            
+            // Thay đổi màu
+            const colors = [
+                'linear-gradient(45deg, #ff6b6b, #ee5a52)',
+                'linear-gradient(45deg, #a55eea, #8b5cf6)',
+                'linear-gradient(45deg, #fd79a8, #e84393)',
+                'linear-gradient(45deg, #fdcb6e, #e17055)',
+                'linear-gradient(45deg, #00b894, #00a085)'
+            ];
+            noButton.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Sau 3 giây rượt đuổi, chuyển sang orbit
+            setTimeout(() => {
+                if (isChasing) {
+                    stopChasing();
+                    startOrbiting();
+                }
+            }, 3000);
+        }
+
+        // Dừng cuộc rượt đuổi
+        function stopChasing() {
+            if (!isChasing) return;
+            
+            isChasing = false;
+            noButton.classList.remove('running');
+            
+            if (chaseInterval) {
+                clearInterval(chaseInterval);
+                chaseInterval = null;
             }
         }
 
-        // Hiển thị phản hồi
-        function showResponse() {
-            const responseSection = document.getElementById('responseSection');
-            responseSection.classList.add('show');
+        // Di chuyển nút "Không" (khi click trực tiếp)
+        function moveNoButton() {
+            // Tạo hiệu ứng đặc biệt khi click trực tiếp
+            noButton.style.transform = 'scale(0.7) rotate(720deg)';
+            setTimeout(() => {
+                noButton.style.transform = 'scale(1) rotate(0deg)';
+            }, 400);
             
-            // Tạo nhiều trái tim
-            for (let i = 0; i < 10; i++) {
+            // Bắt đầu orbit ngay lập tức
+            startOrbiting();
+            
+            // Tăng counter
+            attempts++;
+            attemptCounter.textContent = attempts;
+            
+            // Thay đổi text
+            const textIndex = (attempts - 1) % noButtonTexts.length;
+            noButton.textContent = noButtonTexts[textIndex];
+            
+            // Tạo trái tim
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createHeart(), i * 100);
+            }
+
+            // Hiệu ứng đặc biệt theo milestone
+            if (attempts % 5 === 0) {
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => createHeart(), i * 50);
+                }
+            }
+
+            if (attempts % 10 === 0) {
+                const questions = [
+                    'Anh biết em yêu anh mà! 😏',
+                    'Em thích xem nút quay không? 🤔', 
+                    'Chọn "Có" đi em! 😘',
+                    'Đổi ý đi mò 😂',
+                    'Anh đợi em đây! 💕'
+                ];
+                document.querySelector('.question').innerHTML = questions[Math.floor(Math.random() * questions.length)];
+            }
+        }
+
+        // Xử lý khi chọn "Có"
+        function handleYes() {
+            document.getElementById('responseSection').classList.add('show');
+            
+            // Ẩn buttons
+            buttonsContainer.style.display = 'none';
+            
+            // Tạo hiệu ứng celebration
+            for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
                     createHeart();
                     createFloatingEmoji();
                 }, i * 100);
             }
             
-            // Rung động trang
+            // Rung động màn hình
             document.body.style.animation = 'shake 0.5s ease-in-out';
             setTimeout(() => {
                 document.body.style.animation = '';
             }, 500);
+
+            // Thay đổi tiêu đề
+            document.querySelector('.title').textContent = 'Em Yêu Anh! 💕';
         }
 
         // Hiệu ứng rung
@@ -507,30 +644,66 @@
         shakeStyle.textContent = `
             @keyframes shake {
                 0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-3px); }
-                75% { transform: translateX(3px); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
             }
         `;
         document.head.appendChild(shakeStyle);
 
         // Khởi tạo
         createStars();
+        setInterval(createHeart, 1500);
+        setInterval(createFloatingEmoji, 2000);
+
+        // Theo dõi vị trí chuột
+        window.mouseX = 0;
+        window.mouseY = 0;
         
-        // Tạo hiệu ứng liên tục
-        setInterval(createHeart, 1000);
-        setInterval(createFloatingEmoji, 1500);
-        
-        // Hiệu ứng click
-        document.addEventListener('click', function(e) {
-            if (!e.target.classList.contains('confession-button')) {
-                createHeartAt(e.clientX, e.clientY);
+        document.addEventListener('mousemove', function(e) {
+            window.mouseX = e.clientX;
+            window.mouseY = e.clientY;
+            
+            // Kiểm tra khoảng cách từ chuột đến nút "Không"
+            const buttonRect = noButton.getBoundingClientRect();
+            const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+            const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+            
+            const distance = Math.sqrt(
+                Math.pow(e.clientX - buttonCenterX, 2) + 
+                Math.pow(e.clientY - buttonCenterY, 2)
+            );
+            
+            // Giảm khoảng cách kích hoạt
+            // Nếu chuột lại gần (trong bán kính 60px), bắt đầu orbit
+            if (distance < 60 && !isOrbiting && !isChasing) {
+                startOrbiting();
+            }
+            // Nếu chuột ra xa (ngoài bán kính 100px), dừng orbit
+            else if (distance > 100 && isOrbiting) {
+                stopOrbiting();
             }
         });
 
-        // Hiệu ứng hover cho nút
-        document.querySelector('.confession-button').addEventListener('mouseenter', function(e) {
-            const rect = e.target.getBoundingClientRect();
-            createHeartAt(rect.left + rect.width/2, rect.top);
+        // Khi chuột rời khỏi trang, dừng mọi hiệu ứng
+        document.addEventListener('mouseleave', function() {
+            stopChasing();
+            stopOrbiting();
+        });
+
+        // Ngăn chuột phải
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        
+        // Easter egg: Nếu ấn phím Enter nhiều lần
+        let enterPresses = 0;
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                enterPresses++;
+                if (enterPresses > 5) {
+                    document.querySelector('.question').innerHTML = 'Anh biết em đang cố gắng cheat! 😂 Nhưng em vẫn phải chọn "Có" thôi! 💕';
+                    // Bắt đầu orbit ngay lập tức
+                    startOrbiting();
+                }
+            }
         });
     </script>
 </body>
