@@ -435,8 +435,8 @@
             const centerX = yesRect.left + yesRect.width / 2;
             const centerY = yesRect.top + yesRect.height / 2;
             
-            // Khoảng cách từ nút "Có"
-            const distance = 100;
+            // Khoảng cách từ nút "Có" - thu hẹp từ 100px xuống 60px
+            const distance = 60;
             
             let newX, newY;
             
@@ -459,8 +459,8 @@
                     break;
             }
             
-            // Đảm bảo không ra khỏi màn hình
-            const safeMargin = 20;
+            // Đảm bảo không ra khỏi màn hình với margin nhỏ hơn
+            const safeMargin = 10;
             const maxX = window.innerWidth - buttonRect.width - safeMargin;
             const maxY = window.innerHeight - buttonRect.height - safeMargin;
             
@@ -478,19 +478,19 @@
             // Tính vị trí mới
             const newPos = calculateDirectionalPosition();
             
-            // Hiệu ứng di chuyển
+            // Hiệu ứng di chuyển nhanh hơn
             noButton.style.position = 'fixed';
-            noButton.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            noButton.style.transition = 'all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             noButton.style.left = newPos.x + 'px';
             noButton.style.top = newPos.y + 'px';
             noButton.style.zIndex = '1000';
             
-            // Hiệu ứng animation tương ứng với hướng
+            // Hiệu ứng animation nhẹ hơn cho vùng nhỏ
             const animations = {
-                0: 'translateX(10px) rotate(90deg) scale(0.9)',    // Phải
-                1: 'translateY(10px) rotate(180deg) scale(0.9)',   // Dưới
-                2: 'translateX(-10px) rotate(270deg) scale(0.9)',  // Trái
-                3: 'translateY(-10px) rotate(360deg) scale(0.9)'   // Trên
+                0: 'translateX(5px) rotate(45deg) scale(0.95)',    // Phải
+                1: 'translateY(5px) rotate(90deg) scale(0.95)',    // Dưới
+                2: 'translateX(-5px) rotate(135deg) scale(0.95)',  // Trái
+                3: 'translateY(-5px) rotate(180deg) scale(0.95)'   // Trên
             };
             
             noButton.style.transform = animations[currentPosition];
@@ -505,31 +505,31 @@
             
             noButton.style.background = colors[currentPosition];
             
-            // Reset animation sau một thời gian
+            // Reset animation sau một thời gian ngắn hơn
             setTimeout(() => {
                 noButton.style.transform = 'scale(1) rotate(0deg)';
-                noButton.style.transition = 'all 0.2s ease';
-            }, 300);
+                noButton.style.transition = 'all 0.15s ease';
+            }, 200);
             
-            // Tạo hiệu ứng đặc biệt theo hướng
+            // Tạo hiệu ứng đặc biệt theo hướng (nhỏ hơn)
             const directions = ['➡️', '⬇️', '⬅️', '⬆️'];
             
-            // Hiển thị hướng di chuyển
+            // Hiển thị hướng di chuyển gần hơn
             const directionIndicator = document.createElement('div');
             directionIndicator.innerHTML = directions[currentPosition];
             directionIndicator.style.position = 'fixed';
-            directionIndicator.style.left = (newPos.x + 90) + 'px';
-            directionIndicator.style.top = (newPos.y - 10) + 'px';
-            directionIndicator.style.fontSize = '24px';
+            directionIndicator.style.left = (newPos.x + 50) + 'px';
+            directionIndicator.style.top = (newPos.y - 5) + 'px';
+            directionIndicator.style.fontSize = '18px';
             directionIndicator.style.zIndex = '1001';
-            directionIndicator.style.animation = 'fadeOut 1s ease-out forwards';
+            directionIndicator.style.animation = 'fadeOut 0.8s ease-out forwards';
             directionIndicator.style.pointerEvents = 'none';
             
             document.body.appendChild(directionIndicator);
             
             setTimeout(() => {
                 directionIndicator.remove();
-            }, 1000);
+            }, 800);
         }
 
         // Bắt đầu quỹ đạo quanh nút "Có"
@@ -705,9 +705,9 @@
             if (attempts % 10 === 0) {
                 const questions = [
                     'Anh biết em yêu anh mà! 😏',
-                    'Em thích xem nút nhảy 4 hướng không? 🤔', 
+                    'Đừng cố gắn chọn không nữa!😏', 
                     'Chọn "Có" đi em! 😘',
-                    'Đổi ý đi mò 😂',
+                    'Đồng ý đi mò 😘',
                     'Anh đợi em đây! 💕'
                 ];
                 document.querySelector('.question').innerHTML = questions[Math.floor(Math.random() * questions.length)];
@@ -773,12 +773,12 @@
                 Math.pow(e.clientY - buttonCenterY, 2)
             );
             
-            // Nếu chuột lại gần (trong bán kính 50px), di chuyển nút
-            if (distance < 50) {
+            // Giảm khoảng cách kích hoạt do phạm vi nhỏ hơn
+            if (distance < 35) {
                 moveToNextPosition();
                 
-                // Tạo hiệu ứng hover
-                for (let i = 0; i < 3; i++) {
+                // Tạo hiệu ứng hover nhẹ hơn
+                for (let i = 0; i < 2; i++) {
                     setTimeout(() => createHeart(), i * 100);
                 }
             }
